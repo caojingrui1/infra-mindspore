@@ -173,7 +173,6 @@ data:
       - ascend/ascend-devkit-imager
       - ascend/ascend-devkit-model-adapter
       - ascend/ascend-faster-transformer
-      - ascend/AscendSpeed
       - ascend/AscendSpeed2
       - ascend/ascend-inference
       - ascend/ascend-inference-ptplugin
@@ -205,6 +204,7 @@ data:
       - ascend/modelzoo-GPL
       - ascend/ads
       - ascend/ModelLink
+      - ascend/AscendSpeed
       merge_method: squash
       labels:
       - label: lgtm
