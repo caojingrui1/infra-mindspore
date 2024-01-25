@@ -129,6 +129,8 @@ data:
       - ascend/tensorflow
       - ascend/parser
       - ascend/transformers
+      - ascend/ACLLite
+      - ascend/EdgeAndRobotics
       merge_method: squash
       labels:
       - label: lgtm

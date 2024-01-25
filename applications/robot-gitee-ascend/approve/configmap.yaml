@@ -13,6 +13,8 @@ data:
       - ascend/AscendSpeed2
       - ascend/ModelLink
       - ascend/ads
+      - ascend/ACLLite
+      - ascend/EdgeAndRobotics
       require_self_approval: true      
 
     - repos:

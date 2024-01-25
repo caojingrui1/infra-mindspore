@@ -28,6 +28,15 @@ data:
         total_number_of_approvers: 1
         total_number_of_reviewers: 2
 
+    - repos:
+        - ascend/ACLLite
+        - ascend/EdgeAndRobotics
+      need_welcome: true
+      cla_label: "ascend-cla/yes"
+      review:
+        number_of_approvers: 1
+        total_number_of_approvers: 1
+        total_number_of_reviewers: 1
         
     - repos:
         - modelx/MindSeed
