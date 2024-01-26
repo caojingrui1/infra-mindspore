@@ -13,6 +13,7 @@ data:
       labels_for_merge:
       - opengauss-cla/yes
       - ci-pipeline-success
+      needs_issues: true
 
     - repos:
       - zengchen1024/repo-test
@@ -35,6 +36,7 @@ data:
       labels_for_merge:
       - opengauss-cla/yes
       - ci-pipeline-success
+      needs_issues: true
 
     - repos:
       - opengauss/tc
@@ -56,6 +58,7 @@ data:
         - opengauss-cla/yes
       missing_labels_for_merge:
         - codecheck-failed
+      needs_issues: true
         
     - repos:
       - opengauss/openGauss-tools-sql-translator
@@ -64,3 +67,27 @@ data:
       labels_for_merge:
       - opengauss-cla/yes
       - codecheck-success
+      needs_issues: true
+    
+    - repos:
+      - opengauss/openGauss-third_party
+      - opengauss/Plugin
+      - opengauss/openGauss-DBMind
+      - opengauss/openGauss-connector-python-pyog
+      - opengauss/openGauss-connector-python-psycopg2
+      - opengauss/openGauss-connector-go-pq
+      - opengauss/CM-RestAPI
+      - opengauss/CBB
+      - opengauss/DSS
+      - opengauss/DMS
+      - opengauss/DCF
+      - opengauss/DCC
+      - opengauss/compatibility-assessment
+      - opengauss/openGauss-tools-datachecker-performance
+      - opengauss/debezium
+      - opengauss/openGauss-migration-portal
+      - opengauss/openGauss-tools-chameleon
+      - opengauss/ora-migration-tool
+      - opengauss/openGauss-container
+      needs_issues: true
+     
