@@ -178,6 +178,7 @@ data:
       - ascend/AscendSpeed2
       - ascend/ascend-inference
       - ascend/ascend-inference-ptplugin
+      - ascend/mindie-service
       labels:
       - label: lgtm
         tips_if_missing: "Please wait for reviewers to review the code."
