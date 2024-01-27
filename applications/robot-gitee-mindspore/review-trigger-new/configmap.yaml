@@ -15,7 +15,6 @@ data:
     config_items:
     - repos:
       - mindspore/docs
-      - mindspore/mindformers
       need_welcome: true
       cla_label: "mindspore-cla/yes"
       review:
@@ -23,6 +22,15 @@ data:
         total_number_of_approvers: 1
         total_number_of_reviewers: 1
         
+    - repos:
+      - mindspore/mindformers
+      need_welcome: true
+      cla_label: "mindspore-cla/yes"
+      review:
+        number_of_approvers: 1
+        total_number_of_approvers: 2
+        total_number_of_reviewers: 2
+
     - repos:
       - mindspore/mindinsight
       - mindspore/mindspore-portal
