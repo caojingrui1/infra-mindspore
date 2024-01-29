@@ -21,6 +21,7 @@ data:
         - ascend/AscendSpeed
         - ascend/AscendSpeed2
         - ascend/ModelLink
+        - ascend/att
       need_welcome: true
       cla_label: "ascend-cla/yes"
       review:
