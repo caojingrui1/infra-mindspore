@@ -89,5 +89,9 @@ data:
       - opengauss/openGauss-tools-chameleon
       - opengauss/ora-migration-tool
       - opengauss/openGauss-container
+      lgtm_counts_required: 2
+      legal_operator: opengauss_bot
+      labels_for_merge:
+      - opengauss-cla/yes
       needs_issues: true
      
