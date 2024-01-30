@@ -81,7 +81,6 @@ data:
         
     - repos:
       - ascend/cann_op_contrib
-      - ascend/vision
       merge_method: squash
       labels:
       - label: lgtm
@@ -97,6 +96,19 @@ data:
         person: I-am-a-robot
         tips_if_added_by_others: "You can't add ascend-cla/yes label manually. Please comment /check-cla to verify it again."
        
+    - repos:
+      - ascend/vision
+      merge_method: squash
+      labels:
+      - label: approved
+        tips_if_missing: "Please wait for approvers to review the code."
+        person: I-am-a-robot
+        tips_if_added_by_others: "You can't add approved label manually. Please remove it and wait for approvers to review your codes."
+      - label: ascend-cla/yes
+        tips_if_missing: "Please sign CLA. If you have done, comment /check-cla to recheck again."
+        person: I-am-a-robot
+        tips_if_added_by_others: "You can't add ascend-cla/yes label manually. Please comment /check-cla to verify it again."   
+
     - repos:
       - ascend/modelzoo
       - ascend/samples
