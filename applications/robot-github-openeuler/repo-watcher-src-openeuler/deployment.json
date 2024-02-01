@@ -8,5 +8,20 @@
     "op": "replace",
     "path": "/spec/template/spec/volumes/2/configMap/name",
     "value": "configmap-repo-watcher-src-openeuler"
+  },
+  {
+    "op": "add",
+    "path": "/spec/template/spec/containers/0/env",
+    "value": [
+      {
+        "name": "APP_ID",
+        "valueFrom": {
+          "secretKeyRef": {
+            "key": "app_id",
+            "name": "secret-robot-token"
+          }
+        }
+      }
+    ]
   }
 ]
