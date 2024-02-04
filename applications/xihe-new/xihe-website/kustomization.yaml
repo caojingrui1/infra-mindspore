@@ -6,4 +6,4 @@ resources:
 - sa.yaml
 images:
 - name: swr.cn-north-4.myhuaweicloud.com/opensourceway/xihe/xihe-website-test
-  newTag: d57828741ee187a1205c36efdb3ef5528bfeef07
+  newTag: 06c220ac36b9aa112ed75a9c524333428a13933d
