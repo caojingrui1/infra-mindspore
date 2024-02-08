@@ -21,6 +21,15 @@
             "name": "secret-robot-token"
           }
         }
+      },
+      {
+        "name": "APP_SECRET",
+        "valueFrom": {
+          "secretKeyRef": {
+            "key": "app_secret",
+            "name": "secret-robot-token"
+          }
+        }
       }
     ]
   }
