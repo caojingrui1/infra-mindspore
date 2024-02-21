@@ -16,6 +16,7 @@ resources:
 - hook-delivery
 - hook-dispatcher
 - synchronizer
+- suspending-check
 commonLabels:
   app: infrastructure-robot-gitee
 commonAnnotations:

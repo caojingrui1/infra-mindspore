@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configmap
+  namespace: robot-gitee-openeuler
+data:
+  config.yaml: |
+    config_items:
+    - repos:
+      - src-openeuler
+      issue_type:
+      - CVE和安全问题
+      issue_state:
+      - 已挂起
+      - 已拒绝

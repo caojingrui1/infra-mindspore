@@ -1,0 +1,127 @@
+apiVersion: v1
+data:
+  config.yaml: |
+    config_items:
+      - repos:
+        - openeuler
+        - openeuler-competition
+        - openeuler-compliance
+        - openeuler-risc-v
+        - openeuler-practice-courses
+        - openeuler-customization
+        - ci-bot
+        - intelligence-factory
+        excluded_repos:
+        - openeuler/community
+        - ci-bot/community
+        legal_operator: openeuler-ci-bot
+        labels_for_merge:
+        - openeuler-cla/yes
+        unable_checking_reviewer_for_pr: true
+        freeze_file:
+        - owner: openeuler
+          repo: release-management
+          branch: master
+          path: release-management.yaml
+        branch_keeper:
+          owner: intelligence-factory
+          repo: community
+          branch: master
+
+      - repos:
+        - src-openeuler
+        legal_operator: openeuler-ci-bot
+        labels_for_merge:
+        - openeuler-cla/yes
+        labels_not_allow_merge: 
+        - linkpull
+        unable_checking_reviewer_for_pr: true
+        freeze_file:
+        - owner: openeuler
+          repo: release-management
+          branch: master
+          path: release-management.yaml
+
+      - repos:
+        - openeuler/community
+        - ci-bot/community
+        lgtm_counts_required: 2
+        legal_operator: openeuler-ci-bot
+        check_permission_based_on_sig_owners: true
+        sigs_dir: sig
+        labels_for_merge:
+        - openeuler-cla/yes
+        unable_checking_reviewer_for_pr: true
+        freeze_file:
+        - owner: openeuler
+          repo: release-management
+          branch: master
+          path: release-management.yaml
+kind: ConfigMap
+metadata:
+  labels:
+    component: openeuler-review-test
+  name: configmap-openeuler-review-test
+  namespace: robot-gitee-openeuler
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    component: openeuler-review-test
+  name: service-openeuler-review-test
+  namespace: robot-gitee-openeuler
+spec:
+  ports:
+  - name: httpport
+    port: 8888
+    protocol: TCP
+    targetPort: 8888
+  selector:
+    component: openeuler-review-test
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    component: openeuler-review-test
+  name: deployment-openeuler-review-test
+  namespace: robot-gitee-openeuler
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: openeuler-review-test
+  template:
+    metadata:
+      labels:
+        component: openeuler-review-test
+    spec:
+      containers:
+      - args:
+        - --port=8888
+        - --gitee-token-path=/app/conf/robot-gitee/robot_token
+        - --config-file=/app/conf/robot-gitee/app_config/config.yaml
+        - --cache-endpoint=http://service-repo-file-cache.robot-gitee.svc.cluster.local:80/v1/file/
+        image: swr.cn-north-4.myhuaweicloud.com/opensourceway/robot/robot-gitee-openeuler-review:master-8a5013
+        imagePullPolicy: IfNotPresent
+        name: openeuler-review
+        ports:
+        - containerPort: 8888
+          name: http
+          protocol: TCP
+        volumeMounts:
+        - mountPath: /app/conf/robot-gitee/robot_token
+          name: secret-volume
+          subPath: robot-token
+        - mountPath: /app/conf/robot-gitee/app_config/
+          name: app-config
+          readOnly: true
+      volumes:
+      - name: secret-volume
+        secret:
+          secretName: secret-robot-token
+      - configMap:
+          name: configmap-openeuler-review-test
+        name: app-config
