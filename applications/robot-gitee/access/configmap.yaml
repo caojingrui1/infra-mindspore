@@ -127,6 +127,7 @@ data:
         
         src-openeuler/software-package-server:
         - software-pkg
+        - robot-gitee-openeuler-suspending-check
 
         ascend:
         - robot-gitee-ascend-assign
@@ -320,6 +321,10 @@ data:
         events:
         - "Merge Request Hook"
         - "Note Hook"
+      - name: robot-gitee-openeuler-suspending-check
+        endpoint: http://service-suspending-check.robot-gitee-openeuler.svc.cluster.local:8888/gitee-hook
+        events:
+          - "Issue Hook"
       - name: robot-gitee-openlookeng-checkpr
         endpoint: http://service-checkpr.robot-gitee-openlookeng.svc.cluster.local:8888/gitee-hook
         events:
