@@ -59,6 +59,7 @@ data:
         - robot-gitee-openeuler-cla
         - robot-gitee-openeuler-tech4dx-label
         - datastat-server
+        - robot-gitee-openeuler-suspending-check
         
         openeuler-competition:
         - robot-gitee-openeuler-label
@@ -127,7 +128,6 @@ data:
         
         src-openeuler/software-package-server:
         - software-pkg
-        - robot-gitee-openeuler-suspending-check
 
         ascend:
         - robot-gitee-ascend-assign
