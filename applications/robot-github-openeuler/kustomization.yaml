@@ -11,8 +11,6 @@ resources:
 - assign
 - repo-watcher-openeuler
 - repo-watcher-src-openeuler
-commonLabels:
-  app: infrastructure-robot-github
 commonAnnotations:
   email: chenzeng765@163.com
   owner: chenzeng
